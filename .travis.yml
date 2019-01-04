@@ -6,10 +6,9 @@ dist: trusty
 
 language: c
 
-#cache:
-#  directories:
-#    - "$HOME/.nimble"
-#    - "$HOME/.choosenim"
+cache:
+  directories:
+    - "$HOME/.choosenim"
 
 install:
   - |
@@ -23,6 +22,7 @@ before_script:
   - export CHOOSENIM_NO_ANALYTICS=1
 
 script:
+  - nimble install nimble -y
   - nimble install nimarchive@#head -y
   - nimble test
   - yes | choosenim stable # Workaround tester overwriting our Nimble install.
